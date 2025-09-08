@@ -12,7 +12,11 @@ type Props = {
 const NewProjectButton = ({ user }: Props) => {
   const router = useRouter();
   return (
-    <Button className="rounded-lg font-semibold" disabled={!user.subscription}>
+    <Button
+      className="rounded-lg font-semibold"
+      disabled={!user.subscription}
+      onClick={() => router.push("/create-page")}
+    >
       <Plus />
       New Project
     </Button>

@@ -1,5 +1,6 @@
 import { getAllProjects } from "@/actions/projects";
 import NotFound from "@/components/global/not-found";
+import Projects from "@/components/global/projects";
 
 const DashboardPage = async () => {
   const allProjects = await getAllProjects();
@@ -16,7 +17,11 @@ const DashboardPage = async () => {
         </div>
       </div>
       {/* Projects */}
-      {allProjects.data && allProjects.data.length > 0 ? '' : <NotFound />}
+      {allProjects.data && allProjects.data.length > 0 ? (
+        <Projects projects={allProjects.data} />
+      ) : (
+        <NotFound />
+      )}
     </div>
   );
 };

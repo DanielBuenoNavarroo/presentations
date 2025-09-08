@@ -1,4 +1,3 @@
-import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { User } from "@prisma/client";
 import SearchBar from "./upper-info-searchbar";

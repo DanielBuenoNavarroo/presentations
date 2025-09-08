@@ -152,3 +152,7 @@
   background-clip: padding-box, border-box;
   border-radius: 9999px;
 }
+
+.bg-vivid-gradient {
+  background: var(--creative-ai-gradient)
+}
