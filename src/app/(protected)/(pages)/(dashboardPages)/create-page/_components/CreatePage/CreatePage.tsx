@@ -1,20 +1,23 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  containerVariants,
-  CreatePageCard,
-  itemVariants,
-} from "@/lib/constants";
-import usePromptStore from "@/store/usePromptStore";
+import { containerVariants, CreatePageCard } from "@/lib/constants";
 import { motion } from "framer-motion";
+import RecentPrompts from "../GenerateAI/recent-prompts";
+import usePromptStore from "@/store/usePromptStore";
+import { useEffect } from "react";
 
 type Props = {
   onSelectOption: (option: string) => void;
 };
 
 const CreatePage = ({ onSelectOption }: Props) => {
-  const {} = usePromptStore();
+  const { prompts, setPage } = usePromptStore();
+
+  useEffect(() => {
+    setPage("create");
+  }, []);
+
   return (
     <motion.div initial="hidden" animate="visible">
       <motion.div
@@ -104,6 +107,7 @@ const CreatePage = ({ onSelectOption }: Props) => {
           </motion.div>
         ))}
       </motion.div>
+      {prompts.length > 0 && <RecentPrompts />}
     </motion.div>
   );
 };
